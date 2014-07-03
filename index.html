@@ -5,10 +5,30 @@
     <script src="bower_components/platform/platform.js"></script>
     <!-- 2. Load the component using an HTML Import -->
     <link rel="import" href="elements/x-gravatar-icon.html">
-    <link rel="import" href="bower_components/core-input/core-input.html">
+    <link rel="import" href="bower_components/paper-input/paper-input.html">
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
   </head>
   <body>
     <!-- 3. Declare the element by its tag. -->
-    <x-gravatar-icon email="fabienfoerster@gmail.com" size="1000"></x-gravatar-icon>
+
+    <polymer-element name="x-gravatar-icon-demo">
+      <template>
+        <h1> x-gravatar-icon-demo</h1>
+        <x-gravatar-icon email="{{ $.core_input.value}}" size="70"></x-gravatar-icon>
+        <x-gravatar-icon email="{{ $.core_input.value}}" size="100"></x-gravatar-icon>
+        <x-gravatar-icon email="{{ $.core_input.value}}" size="150"></x-gravatar-icon>
+        <div>
+          <paper-input label="Your gravatar email" id="core_input" floatingLabel=true></paper-input>
+          <paper-button label="Enter"></paper-button>
+        </div>
+      </template>
+      <script>
+        Polymer('x-gravatar-icon-demo',{
+
+        });
+      </script>
+    </polymer-element>
+
+    <x-gravatar-icon-demo></x-gravatar-icon-demo>
   </body>
 </html>
