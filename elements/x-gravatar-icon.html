@@ -1,0 +1,24 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/core-icon/core-icon.html">
+<script src="../bower_components/js-md5/js/md5.min.js" ></script>
+
+<polymer-element name="x-gravatar-icon" attributes="email size">
+<template>
+  <core-icon src="{{gravatarUrl}}" size="{{size}}" ></core-icon>
+</template>
+<script>
+  (function(){
+    Polymer({
+      baseUrl: 'http://www.gravatar.com/avatar/',
+      gravatarUrl: '',
+      email: '',
+      size: 32,
+      hash: '',
+      emailChanged : function() {
+        this.hash = md5(this.email);
+        this.gravatarUrl = this.baseUrl + this.hash + '?s=' + this.size;
+      }
+    });
+  })();
+</script>
+</polymer-element>
