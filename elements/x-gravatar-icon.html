@@ -4,6 +4,13 @@
 
 <polymer-element name="x-gravatar-icon" attributes="email size">
 <template>
+  <style>
+  :host core-icon {
+	border-radius: {{size/2}}px;
+	-webkit-border-radius: {{size/2}}px;
+	-moz-border-radius: {{size/2}}px;
+  }
+  </style>
   <core-icon src="{{gravatarUrl}}" size="{{size}}" ></core-icon>
 </template>
 <script>
